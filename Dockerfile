@@ -27,7 +27,7 @@ RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && \
                 apt autoremove -y && \
                 rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*"
 
-COPY ./r2s2_for_rostest /catkin_ws/src/r2s2_for_rostest
+COPY . /catkin_ws/src/r2s2_for_rostest
 RUN pip3 install -r /catkin_ws/src/r2s2_for_rostest/requirements.txt
 
 RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && \
