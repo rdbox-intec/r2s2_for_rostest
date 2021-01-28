@@ -228,6 +228,7 @@ class IntegrationTest(object):
             record = self.apis_client.search_job()
             if record.is_done():
                 break
+            print('wait...')
             rate.sleep()
         # Test
         if self.__within_the_time_limit(start):
