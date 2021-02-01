@@ -34,6 +34,7 @@ class Job(object):
         'id': 'int',
         'uid': 'str',
         'mid': 'int',
+        'unique_name': 'str',
         'strategy_image': 'Image',
         'strategy_args': 'list[str]',
         'simulator_image': 'Image',
@@ -46,6 +47,7 @@ class Job(object):
         'id': 'id',
         'uid': 'uid',
         'mid': 'mid',
+        'unique_name': 'unique_name',
         'strategy_image': 'strategy_image',
         'strategy_args': 'strategy_args',
         'simulator_image': 'simulator_image',
@@ -54,12 +56,13 @@ class Job(object):
         'namespace': 'namespace'
     }
 
-    def __init__(self, id=None, uid=None, mid=None, strategy_image=None, strategy_args=None, simulator_image=None, simulator_args=None, simulator_opts=None, namespace=None):  # noqa: E501
+    def __init__(self, id=None, uid=None, mid=None, unique_name=None, strategy_image=None, strategy_args=None, simulator_image=None, simulator_args=None, simulator_opts=None, namespace=None):  # noqa: E501
         """Job - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
         self._uid = None
         self._mid = None
+        self._unique_name = None
         self._strategy_image = None
         self._strategy_args = None
         self._simulator_image = None
@@ -74,6 +77,8 @@ class Job(object):
             self.uid = uid
         if mid is not None:
             self.mid = mid
+        if unique_name is not None:
+            self.unique_name = unique_name
         if strategy_image is not None:
             self.strategy_image = strategy_image
         if strategy_args is not None:
@@ -149,6 +154,27 @@ class Job(object):
         """
 
         self._mid = mid
+
+    @property
+    def unique_name(self):
+        """Gets the unique_name of this Job.  # noqa: E501
+
+
+        :return: The unique_name of this Job.  # noqa: E501
+        :rtype: str
+        """
+        return self._unique_name
+
+    @unique_name.setter
+    def unique_name(self, unique_name):
+        """Sets the unique_name of this Job.
+
+
+        :param unique_name: The unique_name of this Job.  # noqa: E501
+        :type: str
+        """
+
+        self._unique_name = unique_name
 
     @property
     def strategy_image(self):

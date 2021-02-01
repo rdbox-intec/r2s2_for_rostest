@@ -18,7 +18,7 @@ class Job(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, uid: str=None, mid: int=None, strategy_image: Image=None, strategy_args: List[str]=None, simulator_image: Image=None, simulator_args: List[str]=None, simulator_opts: JobSimulatorOpts=None, namespace: str=None):  # noqa: E501
+    def __init__(self, id: int=None, uid: str=None, mid: int=None, unique_name: str=None, strategy_image: Image=None, strategy_args: List[str]=None, simulator_image: Image=None, simulator_args: List[str]=None, simulator_opts: JobSimulatorOpts=None, namespace: str=None):  # noqa: E501
         """Job - a model defined in Swagger
 
         :param id: The id of this Job.  # noqa: E501
@@ -27,6 +27,8 @@ class Job(Model):
         :type uid: str
         :param mid: The mid of this Job.  # noqa: E501
         :type mid: int
+        :param unique_name: The unique_name of this Job.  # noqa: E501
+        :type unique_name: str
         :param strategy_image: The strategy_image of this Job.  # noqa: E501
         :type strategy_image: Image
         :param strategy_args: The strategy_args of this Job.  # noqa: E501
@@ -44,6 +46,7 @@ class Job(Model):
             'id': int,
             'uid': str,
             'mid': int,
+            'unique_name': str,
             'strategy_image': Image,
             'strategy_args': List[str],
             'simulator_image': Image,
@@ -56,6 +59,7 @@ class Job(Model):
             'id': 'id',
             'uid': 'uid',
             'mid': 'mid',
+            'unique_name': 'unique_name',
             'strategy_image': 'strategy_image',
             'strategy_args': 'strategy_args',
             'simulator_image': 'simulator_image',
@@ -67,6 +71,7 @@ class Job(Model):
         self._id = id
         self._uid = uid
         self._mid = mid
+        self._unique_name = unique_name
         self._strategy_image = strategy_image
         self._strategy_args = strategy_args
         self._simulator_image = simulator_image
@@ -147,6 +152,27 @@ class Job(Model):
         """
 
         self._mid = mid
+
+    @property
+    def unique_name(self) -> str:
+        """Gets the unique_name of this Job.
+
+
+        :return: The unique_name of this Job.
+        :rtype: str
+        """
+        return self._unique_name
+
+    @unique_name.setter
+    def unique_name(self, unique_name: str):
+        """Sets the unique_name of this Job.
+
+
+        :param unique_name: The unique_name of this Job.
+        :type unique_name: str
+        """
+
+        self._unique_name = unique_name
 
     @property
     def strategy_image(self) -> Image:

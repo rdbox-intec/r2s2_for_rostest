@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from typing import Any, Callable
 import unittest
 import rostest
 import rospy
@@ -10,6 +9,7 @@ import functools
 import json
 import re
 import urllib
+from typing import Any, Callable
 from swagger_client.configuration import Configuration
 from swagger_client.api_client import ApiClient
 from swagger_client.api.job_api import JobApi
@@ -267,6 +267,7 @@ class IntegrationTest(object):
         job = Job.from_dict(self.raw_params_pcs)
         job.id = -1
         job.mid = -1
+        job.unique_name = os.getenv('CI_JOB_STAGE', 'main')
         job.uid = IntegrationTest.get_user()
         return job
 
